@@ -23,13 +23,13 @@ public class Comentario implements Serializable {
     @EqualsAndHashCode.Include
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private OrdemServico ordemServico;
-
     @Column(name = "descricao", nullable = false)
     private String descricao;
 
     @Column(name = "data_envio", nullable = false)
     private OffsetDateTime dataEnvio;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private OrdemServico ordemServico;
 
 }

@@ -26,9 +26,6 @@ public class OrdemServico implements Serializable {
     @EqualsAndHashCode.Include
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Cliente cliente;
-
     @Column(name = "descricao", nullable = false)
     private String descricao;
 
@@ -43,6 +40,9 @@ public class OrdemServico implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private StatusOS status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Cliente cliente;
 
     @OneToMany(mappedBy = "ordemServico")
     private List<Comentario> comentarios  = new ArrayList<>();
